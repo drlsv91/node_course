@@ -1,4 +1,5 @@
 const { Customer, validate } = require("../models/customer");
+const auth = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 router.use(express.json());
@@ -8,7 +9,7 @@ router.get("/", async (req, res) => {
   res.send(customers);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   //verify the body
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
