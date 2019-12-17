@@ -7,6 +7,7 @@ require("./startup/routes")(app);
 require("./startup/db")();
 require("./startup/config")();
 require("./startup/validation")();
+
 // const p = Promise.reject(new Error("something failed miserably"));
 // p.then(() => console.log("Done"));
 
