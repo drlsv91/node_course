@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 const { genreSchema } = require("./genre");
 
-const Movies = mongoose.model(
+const Movie = mongoose.model(
   "Movie",
   new mongoose.Schema({
     title: {
@@ -35,5 +35,5 @@ function validateMovie(movie) {
   return Joi.validate(movie, schema);
 }
 
-exports.Movies = Movies;
+exports.Movie = Movie;
 exports.validate = validateMovie;
